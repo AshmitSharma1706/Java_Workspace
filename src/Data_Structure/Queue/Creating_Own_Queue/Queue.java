@@ -11,7 +11,7 @@ public class Queue {
         rear = -1;
     }
     public void enqueue(int x){
-        if(rear==size-1){
+        if(rear == size-1){
             throw new QueueException("Queue Overflow");
         }
         rear++;
