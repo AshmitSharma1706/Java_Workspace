@@ -112,4 +112,50 @@ public class LinkedList {
             p.setNext(temp);
         }
     }
+    public void removeFirst(){
+        if(head==null){
+            System.out.println("List is Empty..!");
+            return;
+        }
+        head=head.getNext();
+    }
+    public void removeLast(){
+        if(head==null){
+            System.out.println("List is Empty..!");
+            return;
+        }
+        if(head.getNext()==null){
+            head=null;
+            return;
+        }
+        while (head.getNext().getNext()!=null){
+            head=head.getNext();
+        }
+        head.setNext(null);
+    }
+    public void remove(int x){
+        if(head==null){
+            System.out.println("List is Empty..!");
+            return;
+        }
+        if(head.getData()==x){
+            head=head.getNext();
+            return;
+        }
+        Node temp=head, prev=null;
+        while (temp.getNext()!=null){
+            prev=temp;
+            temp=temp.getNext();
+            if(temp.getData()==x) {
+                prev.setNext(temp.getNext());
+                return;
+            }
+        }
+        while (head.getData()!=x){
+            head=head.getNext();
+        }
+        if(head==null){
+            System.out.println("Given Node does not exist..!");
+        }
+    }
 }
