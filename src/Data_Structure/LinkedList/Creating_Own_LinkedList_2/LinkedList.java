@@ -1,5 +1,6 @@
 package Data_Structure.LinkedList.Creating_Own_LinkedList_2;
 
+import java.util.NoSuchElementException;
 import java.util.Stack;
 
 public class LinkedList {
@@ -104,11 +105,8 @@ public class LinkedList {
             prev=temp;
             temp=temp.getNext();
         }
-        if(temp==null){
-            prev.setNext(p);
-        }
-        else {
-            prev.setNext(p);
+        prev.setNext(p);
+        if (temp != null) {
             p.setNext(temp);
         }
     }
@@ -134,29 +132,58 @@ public class LinkedList {
         head.setNext(null);
     }
     public void remove(int x){
+        if (head == null) {
+            throw new NoSuchElementException("List is empty");
+        }
+        if(head.getData()==x){
+            if(head.getNext()==null){
+                head=null;
+                return;
+            }
+            head=head.getNext();
+            return;
+        }
+        Node temp=head,prev=null;
+        while(temp.getNext()!=null && temp.getData()!=x){
+            prev=temp;
+            temp=temp.getNext();
+        }
+        if(temp.getData()==x){
+            prev.setNext(temp.getNext());
+            return;
+        }
+        System.out.println("No such element found..!");
+    }
+    public void reverse(){
         if(head==null){
             System.out.println("List is Empty..!");
             return;
         }
-        if(head.getData()==x){
-            head=head.getNext();
-            return;
+        Node prev=null, current=head, next;
+        while (current!=null){
+            next=current.getNext();
+            current.setNext(prev);
+            prev=current;
+            current=next;
         }
-        Node temp=head, prev=null;
-        while (temp.getNext()!=null){
-            prev=temp;
+        head=prev;
+    }
+    public void deleteNthNodeFromLast(int pos){
+        int count=count();
+        if(pos<=0 || pos>count){
+            throw new IllegalArgumentException("Invalid position");
+        }
+        int diff=count-pos;
+        int i=1;
+        Node temp=head;
+        while(i<diff){
             temp=temp.getNext();
-            if(temp.getData()==x) {
-                prev.setNext(temp.getNext());
-                return;
-            }
+            i++;
         }
-        while (head.getData()!=x){
+        if(diff==0){
             head=head.getNext();
-        }
-        if(head==null){
-            System.out.println("Given Node does not exist..!");
+        }else{
+            temp.setNext(temp.getNext().getNext());
         }
     }
-
 }
