@@ -186,4 +186,46 @@ public class LinkedList {
             temp.setNext(temp.getNext().getNext());
         }
     }
+    public Node midNode(){
+        if(head==null){
+            throw new NoSuchElementException("List is empty..!");
+        }
+        if(head.getNext()==null){
+            return head;
+        }
+        int count=count();
+        Node temp=head;
+        int i=1;
+        if (count%2==0){
+            while (i<(count/2)+1){
+                i++;
+                temp=temp.getNext();
+            }
+            return temp;
+        }
+        while (i<(count+1)/2){
+            i++;
+            temp=temp.getNext();
+        }
+        return temp;
+    }
+    public static Node intersection(LinkedList list1,LinkedList list2){
+        if (list1.head==null && list2.head==null){
+            throw new NoSuchElementException("Both list are empty..!");
+        }
+        if (list1.head==null || list2.head==null){
+            throw new NoSuchElementException("Either of the lists, is empty..!");
+        }
+        Node temp1=list1.head, temp2=list2.head;
+        while (temp1!=null){
+            while (temp2!=null){
+                if(temp1==temp2){
+                    return temp1;
+                }
+                temp2=temp2.getNext();
+            }
+            temp1=temp1.getNext();
+        }
+        return null;
+    }
 }
