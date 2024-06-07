@@ -8,8 +8,10 @@ public class UseBST {
         bst.append(12);
         bst.append(8);
         bst.append(5);
-        bst.preorder();
-        bst.preorder2();
         System.out.println("Binary Search Tree Created..!");
+        bst.preorder();
+        System.out.println("Binary Search Tree Traversed in preorder..!");
+        bst.inorder();
+        System.out.println("Binary Search Tree Traversed in inorder..!");
     }
 }

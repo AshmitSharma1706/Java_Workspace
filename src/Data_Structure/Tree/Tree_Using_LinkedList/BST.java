@@ -67,4 +67,21 @@ public class BST {
             }
         }
     }
+    public void inorder(){
+        if(root==null){
+            System.out.println("Tree is empty..!");
+            return;
+        }
+        Stack<Node> st=new Stack<>();
+        Node temp=root;
+        while(temp!=null || !st.empty()){
+            while (temp!=null){
+                st.push(temp);
+                temp=temp.getLeft();
+            }
+            temp=st.pop();
+            System.out.println(temp.getData());
+            temp=temp.getRight();
+        }
+    }
 }
