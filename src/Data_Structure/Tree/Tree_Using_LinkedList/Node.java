@@ -4,6 +4,15 @@ public class Node {
     private Node left;
     private int data;
     private Node right;
+    private int flag;
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
 
     public Node(int data) {
         this.data = data;

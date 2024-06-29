@@ -13,5 +13,7 @@ public class UseBST {
         System.out.println("Binary Search Tree Traversed in preorder..!");
         bst.inorder();
         System.out.println("Binary Search Tree Traversed in inorder..!");
+        bst.postorder();
+        System.out.println("Binary Search Tree Traversed in postorder..!");
     }
 }

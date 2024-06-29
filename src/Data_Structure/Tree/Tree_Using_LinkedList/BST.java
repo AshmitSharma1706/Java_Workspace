@@ -84,4 +84,29 @@ public class BST {
             temp=temp.getRight();
         }
     }
+    public void postorder(){
+        if(root==null){
+            System.out.println("Tree is empty..!");
+            return;
+        }
+        Stack<Node> st=new Stack<>();
+        Node temp=root;
+        while(temp!=null || !st.empty()){
+            while (temp!=null){
+                st.push(temp);
+                if(temp.getRight()!=null){
+                    temp.getRight().setFlag(-1);
+                    st.push(temp.getRight());
+                }
+                temp=temp.getLeft();
+            }
+            temp=st.pop();
+            if(temp.getFlag()==0){
+                System.out.println(temp.getData());
+                temp=null;
+            }else {
+                temp.setFlag(0);
+            }
+        }
+    }
 }
