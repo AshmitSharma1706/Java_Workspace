@@ -9,11 +9,15 @@ public class UseBST {
         bst.append(8);
         bst.append(5);
         System.out.println("Binary Search Tree Created..!");
-        bst.preorder();
         System.out.println("Binary Search Tree Traversed in preorder..!");
-        bst.inorder();
+        bst.preorder();
         System.out.println("Binary Search Tree Traversed in inorder..!");
-        bst.postorder();
+        bst.inorder();
         System.out.println("Binary Search Tree Traversed in postorder..!");
+        bst.postorder();
+        boolean done=bst.deleteNode(12);
+        System.out.println("Node deleted : "+done);
+        System.out.println("Binary Search Tree Traversed in inorder..!");
+        bst.inorder();
     }
 }

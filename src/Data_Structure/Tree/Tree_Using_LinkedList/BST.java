@@ -1,5 +1,6 @@
 package Data_Structure.Tree.Tree_Using_LinkedList;
 
+import java.util.NoSuchElementException;
 import java.util.Stack;
 
 public class BST {
@@ -108,5 +109,77 @@ public class BST {
                 temp.setFlag(0);
             }
         }
+    }
+    public Node[] search(int x){
+        Node[] arr=new Node[2];
+        Node par=null, child=root;
+        while (child!=null){
+            if(child.getData()==x){
+                arr[0]=par;
+                arr[1]=child;
+                return arr;
+            }
+            par=child;
+            if(child.getData()>x){
+                child=child.getLeft();
+            }
+            else {
+                child=child.getRight();
+            }
+        }
+        return null;
+    }
+    public boolean deleteNode(int x){
+        if(root==null){
+            throw new NoSuchElementException("Tree is empty..!");
+        }
+        Node[] arr=search(x);
+        Node par=arr[0];
+        Node child=arr[1];
+        Node succ;
+        if (child.getLeft()!=null && child.getRight()!=null){
+            succ=child.getRight();
+            par=child;
+            while (succ.getLeft()!=null){
+                par=succ;
+                succ=succ.getLeft();
+            }
+            child.setData(succ.getData());
+            child=succ;
+        }
+        if(child.getLeft()==null && child.getRight()==null){
+            if(par==null){
+                root=null;
+            }
+            else if (child==par.getLeft()) {
+                par.setLeft(null);
+            }
+            else {
+                par.setRight(null);
+            }
+        }
+        if(child.getLeft()!=null && child.getRight()==null){
+            if(par==null){
+                root=child.getLeft();
+            }
+            else if (child==par.getLeft()) {
+                par.setLeft(child.getLeft());
+            }
+            else{
+                par.setRight(child.getLeft());
+            }
+        }
+        if(child.getLeft()==null && child.getRight()!=null){
+            if(par==null){
+                root=child.getRight();
+            }
+            else if (child==par.getLeft()) {
+                par.setLeft(child.getRight());
+            }
+            else{
+                par.setRight(child.getRight());
+            }
+        }
+        return true;
     }
 }
