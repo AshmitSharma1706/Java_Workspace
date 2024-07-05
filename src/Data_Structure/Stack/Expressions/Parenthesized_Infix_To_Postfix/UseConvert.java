@@ -1,4 +1,4 @@
-package Data_Structure.Expressions.Parenthesized_Infix_To_Prefix;
+package Data_Structure.Stack.Expressions.Parenthesized_Infix_To_Postfix;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ public class UseConvert {
         System.out.println("Enter a valid Infix expression:");
         String infix=s.next();
         Convert con=new Convert(infix);
-        con.toPrefix();
+        con.toPostfix();
         System.out.println(con);
     }
 }

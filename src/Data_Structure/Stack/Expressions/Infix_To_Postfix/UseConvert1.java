@@ -1,4 +1,4 @@
-package Data_Structure.Expressions.Infix_To_Postfix;
+package Data_Structure.Stack.Expressions.Infix_To_Postfix;
 
 import java.util.Scanner;
 

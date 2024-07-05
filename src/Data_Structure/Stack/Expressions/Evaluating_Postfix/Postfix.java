@@ -1,22 +1,22 @@
-package Data_Structure.Expressions.Evaluating_Prefix;
+package Data_Structure.Stack.Expressions.Evaluating_Postfix;
 
 import java.util.Stack;
 
-public class Prefix {
-    private String prefix;
+public class Postfix {
+    private String postfix;
 
-    public Prefix(String postfix) {
-        this.prefix = postfix;
+    public Postfix(String postfix) {
+        this.postfix = postfix;
     }
     public float evaluate(){
         Stack<Float> st=new Stack<>();
-        for(int i=prefix.length()-1;i>=0;i--){
-            char ch=prefix.charAt(i);
+        for(int i=0;i<postfix.length();i++){
+            char ch=postfix.charAt(i);
             if(isOperand(ch)){
                 st.push((float)(ch-48));
             }else{
-                float op1= st.pop();
                 float op2= st.pop();
+                float op1= st.pop();
                 float res= calculate(op1,op2,ch);
                 st.push(res);
             }

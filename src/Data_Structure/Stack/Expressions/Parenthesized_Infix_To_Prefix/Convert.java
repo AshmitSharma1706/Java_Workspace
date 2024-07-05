@@ -1,4 +1,4 @@
-package Data_Structure.Expressions.Infix_To_Prefix;
+package Data_Structure.Stack.Expressions.Parenthesized_Infix_To_Prefix;
 
 import java.util.Stack;
 
@@ -14,11 +14,23 @@ public class Convert {
         Stack<Character> st=new Stack<>();
         for(int i=infix.length()-1; i>=0; i--){
             char ch=infix.charAt(i);
-            if (isOperand(ch)){
+            if(ch==')'){
+                st.push(ch);
+            }
+            else if(ch=='('){
+                while (st.peek()!=')'){
+                    prefix+=st.pop();
+                }
+                st.pop();
+            }
+            else if (isOperand(ch)){
                 prefix = prefix +ch;
             }
             else {
                 while (!st.isEmpty()){
+                    if(st.peek()==')'){
+                        break;
+                    }
                     boolean check=precedence(ch) >= precedence(st.peek());
                     if(check)
                         break;
