@@ -228,4 +228,34 @@ public class LinkedList {
         }
         return null;
     }
+
+    public int get(int x){
+        if(head ==null){
+            return -1;
+        }
+        if(x>count()){
+            return -1;
+        }
+        Node temp=head;
+        for(int i=0; i<=x; i++){
+            temp=temp.getNext();
+        }
+        return temp.getData();
+    }
+
+    public void removeAtIndex(int x){
+        if (head == null) {
+            System.out.println("List is empty..!");
+            return;
+        }
+        if(x==0){
+            removeFirst();
+        }
+        Node temp=head,prev=null;
+        for(int i=0; i<=x; i++){
+            prev=temp;
+            temp=temp.getNext();
+        }
+        prev.setNext(temp.getNext());
+    }
 }

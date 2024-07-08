@@ -22,8 +22,8 @@ public class UseLinkedList {
         if(n==null){
             System.out.println("No intersecting node found..! "+n);
         }
-
-
+        list1.reverse();
+        list1.printList();
 
     }
 }
