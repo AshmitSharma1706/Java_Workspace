@@ -9,7 +9,7 @@ public class Palindrome2 {
         System.out.print("Enter a string:");
         String str= kb.nextLine();
         str=str.toLowerCase();
-        for(int k=0; k<=str.length(); k++){
+        for(int k=0; k<str.length(); k++){
             char ch=str.charAt(k);
             if(Character.isLetterOrDigit(ch)){
 
