@@ -5,8 +5,19 @@ import java.util.List;
 
 public class SubSeq {
     public static void main(String[] args) {
-        subSequence3("","abc");
-        System.out.println(subSequence4("","abc"));
+//        subSequence3("","abc");
+//        System.out.println(subSequence4("","abc"));
+        System.out.println(change("abcd"));
+    }
+
+    public static String change(String s){
+        if(s.isEmpty()){
+            return "";
+        }
+
+        char ch=s.charAt(0);
+        char c=(char)(ch-32);
+        return c+change(s.substring(1));
     }
     public static void subSequence(String p,String s){
         if(s.isEmpty()){
