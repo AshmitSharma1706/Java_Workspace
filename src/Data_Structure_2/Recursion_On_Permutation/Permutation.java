@@ -8,7 +8,7 @@ public class Permutation {
         permutations("","abc");
         System.out.println();
         System.out.println(permutationsList("","abc"));
-        System.out.println(permutationsCount("","abc"));
+//        System.out.println(permutationsCount("","abc"));
 
     }
     public static void permutations(String process, String unProcess){
