@@ -6,14 +6,16 @@ import java.util.List;
 
 public class Maze {
     public static void main(String[] args) {
-        System.out.println(paths(3,3));
-        boolean[][] maze={
-                {true,true,true},
-                {true,true,true},
-                {true,true,true}
+//        System.out.println(paths(3,3));
+        int[][] maze={
+                {1,0,1,1,1},
+                {1,1,1,1,1},
+                {1,1,1,1,1},
+                {1,1,1,0,1},
+                {1,1,1,1,0}
         };
         int[][] path=new int [maze.length][maze[0].length];
-        allPaths2("",maze,0,0,path,1);
+        System.out.println(anyTwo(0,maze,0,0));
     }
     public static int paths(int row, int col){
         if(row==1 || col==1){
@@ -82,6 +84,22 @@ public class Maze {
         if(col<maze[0].length-1){
             pathsRestriction(s+'R',maze,row,col+1);
         }
+    }
+    public static int anyTwo(int step,int[][] maze, int row, int col){
+        if(col==maze[0].length-1){
+            step+=1;
+            return step;
+        }
+        if(maze[row][col]==0){
+            return step-1;
+        }
+        if(row<maze.length-1){
+            anyTwo(step+1,maze,row+1,col);
+        }
+        if(col<maze[0].length-1){
+            anyTwo(step+1,maze,row,col+1);
+        }
+        return step;
     }
     public static void allPaths(String s,boolean[][] maze, int row, int col){
         if(row== maze.length-1 && col==maze[0].length-1){

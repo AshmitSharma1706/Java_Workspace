@@ -6,6 +6,24 @@ public class StringProcessing {
         System.out.println(skip("abccaddh"));
         System.out.println(skipApple("abccappleaddh"));
         System.out.println(skipAppNotApple("abccappaddh"));
+        System.out.println(upperCase("abcdef"));
+        System.out.println(lowerCase("ABCDEF"));
+    }
+    public static String upperCase(String s){
+        if(s.isEmpty()){
+            return "";
+        }
+        char ch=s.charAt(0);
+        ch=(char)(ch-32);
+        return ch+upperCase(s.substring(1));
+    }
+    public static String lowerCase(String s){
+        if(s.isEmpty()){
+            return "";
+        }
+        char ch=s.charAt(0);
+        ch=(char)(ch+32);
+        return ch+lowerCase(s.substring(1));
     }
     public static void skip(String p,String s){
         if(s.isEmpty()){
