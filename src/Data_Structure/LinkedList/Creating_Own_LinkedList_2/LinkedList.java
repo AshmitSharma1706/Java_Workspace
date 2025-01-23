@@ -126,10 +126,11 @@ public class LinkedList {
             head=null;
             return;
         }
-        while (head.getNext().getNext()!=null){
-            head=head.getNext();
+        Node temp=head;
+        while (temp.getNext().getNext()!=null){
+            temp=temp.getNext();
         }
-        head.setNext(null);
+        temp.setNext(null);
     }
     public void remove(int x){
         if (head == null) {

@@ -1,10 +1,5 @@
 package Leet_Code;
 
-import Oops.Array.Array;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Remove_Duplicates_from_Sorted_Array {
     public static void main(String[] args) {
         int [] test={1,1,2};
