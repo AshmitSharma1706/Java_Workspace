@@ -228,6 +228,16 @@ public class LinkedList {
         }
         return length;
     }
+    public ListNode getMid(ListNode head) {
+        ListNode midPrev = null;
+        while (head != null && head.next != null) {
+            midPrev = (midPrev == null) ? head : midPrev.next;
+            head = head.next.next;
+        }
+        ListNode mid = midPrev.next;
+        midPrev.next = null;
+        return mid;
+    }
     public ListNode detectCycle(ListNode head) {
         int length=0;
         ListNode slow=head;
@@ -293,6 +303,25 @@ public class LinkedList {
         tail.next=node;
         tail=node;
         tail.next=null;
+    }
+    public void reverse2() {
+        if (size < 2) {
+            return;
+        }
+
+        Node prev = null;
+        Node present = head;
+        Node next = present.next;
+
+        while (present != null) {
+            present.next = prev;
+            prev = present;
+            present = next;
+            if (next != null) {
+                next = next.next;
+            }
+        }
+        head = prev;
     }
 }
 class ListNode {
