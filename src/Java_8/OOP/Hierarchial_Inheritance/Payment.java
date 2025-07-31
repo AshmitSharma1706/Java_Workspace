@@ -1,9 +1,10 @@
 package Java_8.OOP.Hierarchial_Inheritance;
 
 public class Payment {
-    private String transactionId;
-    private double amount;
-    public void setPaymentDetails(String transactionId, double amount){
+    private final String transactionId;
+    private final double amount;
+
+    public Payment(String transactionId,double amount){
         this.transactionId=transactionId;
         this.amount=amount;
     }

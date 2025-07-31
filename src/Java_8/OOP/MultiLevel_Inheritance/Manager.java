@@ -12,7 +12,7 @@ public class Manager extends Employee{
     }
     @Override
     public double calculateSalary() {
-        return super.calculateSalary()+bonus;
+        return getTotalSal();
     }
     @Override
     public void displayDetails() {
